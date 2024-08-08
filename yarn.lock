@@ -1853,6 +1853,11 @@ string-kit@^0.18.1:
   resolved "https://registry.yarnpkg.com/string-kit/-/string-kit-0.18.3.tgz#9e422134ef54d3101ddfb570025d8775b20de3bf"
   integrity sha512-G8cBS7wxxHhwQrKU0Y8SjZJRtCzZ61bMmMCO1bWm6N6y2obT0koGK8uWYloMOaVPPr8zk7Ic995uEd4Jw504AQ==
 
+string-similarity-js@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/string-similarity-js/-/string-similarity-js-2.1.4.tgz#73716330691946f2ebc435859aba8327afd31307"
+  integrity sha512-uApODZNjCHGYROzDSAdCmAHf60L/pMDHnP/yk6TAbvGg7JSPZlSto/ceCI7hZEqzc53/juU2aOJFkM2yUVTMTA==
+
 string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
