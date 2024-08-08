@@ -1,0 +1,14 @@
+{
+  "name": "wikijs-cli",
+  "version": "1.0.0",
+  "description": "A WikiJS client",
+  "main": "lib/index.js",
+  "author": "Patrick Hochstenbach <Patrick.Hochstenbach@UGent.be>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "graphqurl": "^1.0.3",
+    "log4js": "^6.9.1"
+  }
+}
