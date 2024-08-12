@@ -2,7 +2,7 @@
 
 const { program } = require('commander');
 const fs = require('fs');
-const { updatePage, listPage, getPage, listPageFields } = require('../lib/index');
+const { updatePage, listPages, getPage, listPageFields } = require('../lib/index');
 
 require('dotenv').config();
 
@@ -38,10 +38,10 @@ program
     });
 
 program
-    .command('list-page')
+    .command('list-pages')
     .action( async () => {
         options = program.opts();
-        const result = await listPage(options);
+        const result = await listPages(options);
 
         console.log(JSON.stringify(result,null,2));
     });
@@ -49,18 +49,18 @@ program
 program
     .command('get-page')
     .argument('<id>','page id')
-    .option('-f,--field <field>','field to display','content')
+    .option('-f,--field <field>','field to display','*')
     .option('-t,--text','only text content')
     .action( async (id,options) => {
         options = {...options,...program.opts()};
         const field  = options.field;
         const result = await getPage(id,options);
 
-        if (field === '*') {
-            console.log(JSON.stringify(result,null,2));
-        }
-        else if (options.text) {
+        if (options.text) {
             console.log(result.content)
+        }
+        else if (field === '*') {
+            console.log(JSON.stringify(result,null,2));
         }
         else {
             console.log(result[field]);
