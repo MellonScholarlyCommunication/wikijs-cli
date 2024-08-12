@@ -66,22 +66,22 @@ Update only the text content of a page.
 ./bin/wikijs-cli.js update-page 2 --text content.txt
 ```
 
-### content-inserter-cli.js
+### updater-cli.js
 
 Insert new content into a downloaded Wiki.js page. By default the update will be appended to the content marked by `{tagname}...{/tagname}` where `tagname` can be set on the command line or read from the `CONTENT_TAG` environment variable.
 
 ```
-./bin/content-inserver-cli.js old_content.txt update.txt > new_content.txt
+./bin/updater-cli.js old_content.txt update.txt > new_content.txt
 ```
 
 Optionally provide a minimum similarity score before new data is appended to the text
 
 ```
-./bin/content-inserver-cli.js --similarity 0.9 old_content.txt update.txt > new_content.txt
+./bin/updater-cli.js --similarity 0.9 old_content.txt update.txt > new_content.txt
 ```
 
 Optionally overwrite existing tag sections
 
 ```
-./bin/content-inserver-cli.js --overwrite old_content.txt update.txt > new_content.txt
+./bin/updater-cli.js --overwrite old_content.txt update.txt > new_content.txt
 ```

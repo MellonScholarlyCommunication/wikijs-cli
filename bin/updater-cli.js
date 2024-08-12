@@ -19,7 +19,7 @@ log4js.configure({
 });
 
 program
-    .name('content-inserter-cli')
+    .name('updater-cli')
     .argument('<file1>', 'input file')
     .argument('<file2>', 'update file')
     .option('--tag <tagname>','content tag',process.env.CONTENT_TAG)

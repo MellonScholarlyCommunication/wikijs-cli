@@ -5,6 +5,10 @@
   "main": "lib/index.js",
   "author": "Patrick Hochstenbach <Patrick.Hochstenbach@UGent.be>",
   "license": "MIT",
+  "bin": {
+    "wikijs-cli": "./bin/wikijs-cli.js",
+    "updater-cli": "./bin/updater-cli.js"
+  },
   "dependencies": {
     "commander": "^12.1.0",
     "dotenv": "^16.4.5",
