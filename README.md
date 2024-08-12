@@ -12,7 +12,7 @@ yarn install
 
 ### enviroment
 
-Creata a new `.env` file:
+Create a new `.env` file:
 
 ```
 cp .env-example .env
