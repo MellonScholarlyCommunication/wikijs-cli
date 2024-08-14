@@ -2,7 +2,7 @@
 
 const { program } = require('commander');
 const fs = require('fs');
-const { contentInserter } = require('../lib/inserter');
+const { contentInserter } = require('../lib/index');
 
 require('dotenv').config();
 
