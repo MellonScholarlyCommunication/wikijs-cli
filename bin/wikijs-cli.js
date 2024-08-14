@@ -2,7 +2,7 @@
 
 const { program } = require('commander');
 const fs = require('fs');
-const { updatePage, listPages, getPage, listPageFields } = require('../lib/index');
+const { updatePage, listPages, resolvePage, getPage, listPageFields } = require('../lib/index');
 
 require('dotenv').config();
 
@@ -42,6 +42,16 @@ program
     .action( async () => {
         options = program.opts();
         const result = await listPages(options);
+
+        console.log(JSON.stringify(result,null,2));
+    });
+
+program
+    .command('resolve')
+    .argument('<url>','url of the page')
+    .action( async (url) => {
+        options = program.opts();
+        const result = await resolvePage(url,options);
 
         console.log(JSON.stringify(result,null,2));
     });
