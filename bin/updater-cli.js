@@ -25,6 +25,7 @@ program
     .option('--tag <tagname>','content tag',process.env.CONTENT_TAG)
     .option('-o,--overwrite','overwrite existing content',false)
     .option('-s,--similarity <score>','ignore text with a score larger')
+    .option('-n,--similarityNormalization <type>', 'use a normalization when calculating similarity')
     .action( async (file1,file2,options) => {
         const content1 = fs.readFileSync(file1, { encoding: 'utf8' });
         const content2 = fs.readFileSync(file2, { encoding: 'utf8' });
