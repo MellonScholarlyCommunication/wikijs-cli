@@ -2,7 +2,7 @@
 
 const { program } = require('commander');
 const fs = require('fs');
-const { updatePage, listPages, resolvePage, getPage, listPageFields } = require('../lib/index');
+const { updatePage, listPages, resolvePage, getPage, getPageHistory, listPageHistory, listPageFields } = require('../lib/index');
 
 require('dotenv').config();
 
@@ -10,7 +10,6 @@ const BASE_URL = process.env.WIKIJS_URL;
 const ACCESS_TOKEN = process.env.WIKIJS_ACCESS_TOKEN;
 
 const log4js = require('log4js');
-const logger = log4js.getLogger();
 
 log4js.configure({
     appenders: {
@@ -61,10 +60,15 @@ program
     .argument('<id>','page id')
     .option('-f,--field <field>','field to display','*')
     .option('-t,--text','only text content')
+    .option('-v,--version <version>','version')
     .action( async (id,options) => {
         options = {...options,...program.opts()};
         const field  = options.field;
-        const result = await getPage(id,options);
+        const version = options.version;
+
+        const result = version? 
+                await getPageHistory(id,version,options) :
+                await getPage(id,options);
 
         if (options.text) {
             console.log(result.content)
@@ -75,6 +79,16 @@ program
         else {
             console.log(result[field]);
         }
+    });
+
+program
+    .command('list-page-history')
+    .argument('<id>','page id')
+    .action( async (id,options) => {
+        options = {...options,...program.opts()};
+        const result = await listPageHistory(id,options);
+
+        console.log(JSON.stringify(result,null,2));
     });
 
 program
