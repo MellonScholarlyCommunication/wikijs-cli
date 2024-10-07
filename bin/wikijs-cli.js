@@ -2,7 +2,16 @@
 
 const { program } = require('commander');
 const fs = require('fs');
-const { updatePage, listPages, resolvePage, getPage, getPageHistory, listPageHistory, listPageFields } = require('../lib/index');
+const { 
+    updatePage, 
+    listPages, 
+    resolvePage, 
+    getPage, 
+    getPageHistory, 
+    listPageHistory, 
+    listPageFields,
+    toRDF 
+} = require('../lib/index');
 
 require('dotenv').config();
 
@@ -60,6 +69,7 @@ program
     .argument('<id>','page id')
     .option('-f,--field <field>','field to display','*')
     .option('-t,--text','only text content')
+    .option('--rdf','convert to RDF')
     .option('-v,--version <version>','version')
     .action( async (id,options) => {
         options = {...options,...program.opts()};
@@ -72,6 +82,10 @@ program
 
         if (options.text) {
             console.log(result.content)
+        }
+        else if (options.rdf) {
+            const markdown = result.content;
+            console.log(await toRDF(markdown));
         }
         else if (field === '*') {
             console.log(JSON.stringify(result,null,2));

@@ -14,6 +14,12 @@
     "dotenv": "^16.4.5",
     "graphqurl": "^1.0.3",
     "log4js": "^6.9.1",
-    "string-similarity-js": "^2.1.4"
+    "marked": "4.0.18",
+    "n3": "^1.22.3",
+    "rdf-parse": "2.3.3",
+    "rdfa": "^0.0.10",
+    "string-similarity-js": "^2.1.4",
+    "string-to-stream": "^3.0.1",
+    "xmldom": "^0.6.0"
   }
 }
