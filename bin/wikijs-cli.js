@@ -84,8 +84,10 @@ program
             console.log(result.content)
         }
         else if (options.rdf) {
+            const path = result.path;
+            const url = BASE_URL.replace("/graphql","/") + path; 
             const markdown = result.content;
-            console.log(await toRDF(markdown));
+            console.log(await toRDF(markdown, url));
         }
         else if (field === '*') {
             console.log(JSON.stringify(result,null,2));
