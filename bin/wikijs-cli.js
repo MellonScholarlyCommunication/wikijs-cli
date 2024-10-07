@@ -87,7 +87,7 @@ program
             const path = result.path;
             const url = BASE_URL.replace("/graphql","/") + path; 
             const markdown = result.content;
-            console.log(await toRDF(markdown, url));
+            console.log(await toRDF(markdown, url, process.env.CONTENT_TAG));
         }
         else if (field === '*') {
             console.log(JSON.stringify(result,null,2));
