@@ -6,6 +6,7 @@ A Wiki.js updater
 
 ```
 yarn install
+npm link
 ```
 
 ## Usage
